@@ -1,2 +1,2 @@
 # projectRation
-Ration Project (Swift + Firebase (Database, Auth) + Kingfisher + CoreData)
+Ration Project (Swift + Firebase (Database, Auth, Storage) + Kingfisher + CoreData)
