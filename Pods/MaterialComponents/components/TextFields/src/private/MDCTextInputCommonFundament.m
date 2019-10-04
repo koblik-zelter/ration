@@ -427,7 +427,6 @@ static inline UIColor *MDCTextInputUnderlineColor() {
 - (void)setupBorder {
   if (!_borderView) {
     _borderView = [[MDCTextInputBorderView alloc] initWithFrame:CGRectZero];
-    ;
     [self.textInput addSubview:_borderView];
     [self.textInput sendSubviewToBack:_borderView];
     _borderView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -974,9 +973,12 @@ static inline UIColor *MDCTextInputUnderlineColor() {
   [self updateClearButton];
 }
 
-- (void)didSetFont {
+- (void)didSetFont:(UIFont *)previousFont {
   UIFont *font = self.textInput.font;
-  self.placeholderLabel.font = font;
+  // Don't replace a custom placeholderLabel font.
+  if (!self.placeholderLabel.font || self.placeholderLabel.font == previousFont) {
+    self.placeholderLabel.font = font;
+  }
 
   [self updatePlaceholderPosition];
 }

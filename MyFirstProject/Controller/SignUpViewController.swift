@@ -12,21 +12,6 @@ import AlertOnboarding
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, AlertOnboardingDelegate {
     
-    func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int) {
-        print("Skip")
-        self.dismiss(animated: true)
-    }
-    
-    func alertOnboardingCompleted() {
-        print("Complete")
-        self.dismiss(animated: true)
-    }
-    
-    func alertOnboardingNext(_ nextStep: Int) {
-        print("Next")
-    }
-    
-    
     var alertView: AlertOnboarding!
     var arrayOfImage = ["onboard1", "onboard2", "onboard3", "onboard4"]
     var arrayOfDescription = ["Найдите подходящий рациона и мы вместе рассчитаем КБЖУ и размер порций специально для вас! Выбор за вами!", "Приготовим вкусные и полезные блюда для вас! Или найдите любимый рецепт прямо в приложении!", "Наши курьеры доставят вам еду в любое удобное для вас время!", "Любое наше блюдо из готовых рационов или же рецепт - сплошное наслаждение!"]
@@ -35,7 +20,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, AlertOnboardi
                               "Доставим в любое время","Наслаждайтесь"]
     
     var sex: String?
-    let source = ["", "Female", "Male", "Other","Denis"]
+    let source = ["", "Female", "Male", "Other"]
     let backgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +82,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, AlertOnboardi
     let dataInput: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Data"
+        tf.placeholder = "Birthday Date"
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
@@ -155,8 +140,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, AlertOnboardi
     }
     
     private func setupView() {
-        self.view.addSubview(dataInput)
-        
         self.view.addSubview(backgroundView)
         self.view.addSubview(label)
         
@@ -221,10 +204,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, AlertOnboardi
         
         sexInput.inputAccessoryView = toolBar
         sexInput.inputView = sexPicker
-        
-        
-        
+
     }
+    
+    func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int) {
+        print("Skip")
+        self.dismiss(animated: true)
+    }
+    
+    func alertOnboardingCompleted() {
+        print("Complete")
+        self.dismiss(animated: true)
+    }
+    
+    func alertOnboardingNext(_ nextStep: Int) {
+        print("Next")
+    }
+    
     @objc func signUp() {
         guard let email = loginInput.text else { return }
         guard let password = passwordInput.text else { return }
@@ -250,9 +246,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, AlertOnboardi
         }
         
     }
+    
     @objc func doneAction() {
         
-        let date = Date()
+        let date = datePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
         let dateString = dateFormatter.string(from: date)

@@ -36,6 +36,7 @@ class APIManager {
         })
     }
     
+    /*
     func downloadRecipes(completion: @escaping ([Post]) -> Void) {
         var recipes = [Post]()
         let ref = reference.child("Recipes")
@@ -49,6 +50,7 @@ class APIManager {
             completion(recipes)
         }
     }
+    */
     
     func downloadPosts(childKey: String, categoryID: String, completion: @escaping ([Post]) -> Void) {
         let ref = reference.child(childKey).child(categoryID)

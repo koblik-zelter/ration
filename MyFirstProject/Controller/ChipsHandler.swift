@@ -22,6 +22,9 @@ class ChipsHandler: NSObject, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCellID, for: indexPath) as? MDCChipCollectionViewCell else { return UICollectionViewCell() }
+        if (indexPath.item == 0 && firstOpen) {
+            cell.isSelected = true
+        }
         cell.chipView.titleLabel.text = categories[indexPath.item].title
         cell.chipView.setBackgroundColor(.white, for: .normal)
         cell.chipView.setBorderColor(.rgbColor(red: 106, green: 191, blue: 123), for: .normal)
@@ -62,8 +65,8 @@ class ChipsHandler: NSObject, UICollectionViewDelegate, UICollectionViewDataSour
             return false
         }
         return true
-        
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }

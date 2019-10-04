@@ -35,13 +35,13 @@ static BOOL _usesLegacySnackbar = NO;
 @dynamic text;
 
 + (instancetype)messageWithText:(NSString *)text {
-  MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+  MDCSnackbarMessage *message = [[[self class] alloc] init];
   message.text = text;
   return message;
 }
 
 + (instancetype)messageWithAttributedText:(NSAttributedString *)attributedText {
-  MDCSnackbarMessage *message = [[MDCSnackbarMessage alloc] init];
+  MDCSnackbarMessage *message = [[[self class] alloc] init];
   message.attributedText = attributedText;
   return message;
 }
@@ -69,6 +69,7 @@ static BOOL _usesLegacySnackbar = NO;
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
   copy.buttonTextColor = self.buttonTextColor;
 #pragma clang diagnostic pop
+  copy.enableRippleBehavior = self.enableRippleBehavior;
 
   // Unfortunately there's not really a concept of 'copying' a block (in the same way you would copy
   // a string, for example). A block's pointer is immutable once it is created and copied to the

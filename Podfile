@@ -18,5 +18,6 @@ target 'MyFirstProject' do
 	pod 'ParallaxHeader', '~> 2.0.0'
 	pod 'MaterialComponents/Buttons'
 	pod 'AlertOnboarding'
+	pod 'Firebase/Performance'
 end
 

@@ -24,6 +24,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     var savedRecipes: [Recipe] = []
     var categories: [Category] = []
     var searchController : UISearchController!
+    var selectedCategory: Category?
     
     let refreshControl: UIRefreshControl = {
         let rc = UIRefreshControl()
@@ -46,7 +47,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.setupNavBar()
         self.setupLongRec()
         self.downloadCategories()
-        self.downloadRecipes()
+       // self.downloadRecipes()
         self.fetchSavedRecipes()
         
     }
@@ -106,7 +107,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         searchController.searchBar.becomeFirstResponder()
 
         let barButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(telegram))
-        //barButton.style = .
         self.navigationItem.rightBarButtonItem = barButton
     }
     
@@ -161,13 +161,16 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    
     private func fetchSavedRecipes() {
         self.savedRecipes = CoreDataManager.shared.fetchRecipes()
     }
-    
+
     private func downloadCategories() {
         APIManager.shared.downloadCategories(childKey: "RecipesCategories") { (categories) in
             self.categories.append(contentsOf: categories)
+            self.categories.sort { return $0.id < $1.id }
+            self.didTapOn(category: self.categories[0])
             self.chipsHandler.addCategories(categories: self.categories)
             DispatchQueue.main.async {
                 let header = self.getCollectionHeader()
@@ -185,6 +188,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.present(alertController, animated: true)
     }
     
+    /*
     private func downloadRecipes() {
         APIManager.shared.downloadRecipes(completion: { (recipes) in
             self.recipes.removeAll()
@@ -195,8 +199,11 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
         })
     }
+ */
     
     func didTapOn(category: Category) {
+        self.selectedCategory = category
+        self.collectionView.refreshControl?.endRefreshing()
         APIManager.shared.downloadPosts(childKey: "RecipesByCategory", categoryID: category.id) { (recipes) in
             self.recipes.removeAll()
             self.recipes.append(contentsOf: recipes)
@@ -208,7 +215,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @objc func updateData() {
         collectionView.refreshControl?.beginRefreshing()
-        self.downloadRecipes()
+        self.didTapOn(category: self.selectedCategory!)
     }
     
     
@@ -269,7 +276,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? HomePostCell else { return UICollectionViewCell() }
         
         print(cell.frame.origin.x)
-        //cell.height.isActive = false
         if cell.frame.origin.x != 0 {
             cell.isRight = true
         }
