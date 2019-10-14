@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "E0BC04EC-9504-4DA6-9747-667BC0A34E59",
+      "name" : "Configuration 1",
+      "options" : {
+        "commandLineArgumentEntries" : [
+
+        ]
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MyFirstProject.xcodeproj",
+      "identifier" : "44844EF3232184E800BA1D48",
+      "name" : "MyFirstProject"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}

@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let vc = SignInViewController()
-                vc.view.backgroundColor = .white
+                vc.view.backgroundColor = UIColor(named: "BackgroundColor")
                 let navController = UINavigationController(rootViewController: vc)
                 navController.modalPresentationStyle = .fullScreen
                 navController.isNavigationBarHidden = true
@@ -45,11 +45,11 @@ class MainTabBarController: UITabBarController {
         let savedNavController = UINavigationController(rootViewController: savedController)
         savedNavController.tabBarItem.image = UIImage(named: "pin")
         
-        let aboutUsController = UIViewController()
+        let aboutUsController = AboutUsViewController()
         let aboutUsNavController = UINavigationController(rootViewController: aboutUsController)
         aboutUsNavController.tabBarItem.image = UIImage(named: "profile-0")
 
-        tabBar.tintColor = .black
+        tabBar.tintColor = UIColor(named: "TabColor")
         tabBar.isTranslucent = false
         viewControllers = [homeNavController, searchNavController, savedNavController, aboutUsNavController]
         

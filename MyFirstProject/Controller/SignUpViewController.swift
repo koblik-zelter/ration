@@ -133,7 +133,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, AlertOnboardi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(named: "BackgroundColor")
         self.setupView()
         self.dismissKey()
         // Do any additional setup after loading the view.

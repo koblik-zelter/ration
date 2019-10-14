@@ -13,6 +13,7 @@
 		4415B5F5233BD64600769ACB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4415B5F4233BD64600769ACB /* CoreDataManager.swift */; };
 		4415B5F7233BEAA000769ACB /* SavedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4415B5F6233BEAA000769ACB /* SavedRecipesViewController.swift */; };
 		443EA83E2334D3B300FA2075 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EA83D2334D3B300FA2075 /* SearchViewController.swift */; };
+		44413792234C9FC400FA3390 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44413791234C9FC400FA3390 /* AboutUsViewController.swift */; };
 		44544ADF2327F5FF0020835F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44544ADE2327F5FF0020835F /* MainTabBarController.swift */; };
 		446459C1232971290065DBF5 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 446459BA232971290065DBF5 /* RobotoCondensed-Bold.ttf */; };
 		446459C2232971290065DBF5 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 446459BB232971290065DBF5 /* RobotoCondensed-Light.ttf */; };
@@ -55,6 +56,7 @@
 		4415B5F4233BD64600769ACB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4415B5F6233BEAA000769ACB /* SavedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesViewController.swift; sourceTree = "<group>"; };
 		443EA83D2334D3B300FA2075 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		44413791234C9FC400FA3390 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		44544ADE2327F5FF0020835F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		446459BA232971290065DBF5 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		446459BB232971290065DBF5 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				44848D8723412E3F00DB8CA8 /* TestViewController.swift */,
 				4415B5F6233BEAA000769ACB /* SavedRecipesViewController.swift */,
 				44F930DB233E211F00C93EBE /* ingredientsViewController.swift */,
+				44413791234C9FC400FA3390 /* AboutUsViewController.swift */,
 				44544ADE2327F5FF0020835F /* MainTabBarController.swift */,
 				44F425142328ECBE001E17B0 /* SignInViewController.swift */,
 				446459C8232A3F980065DBF5 /* SignUpViewController.swift */,
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				443EA83E2334D3B300FA2075 /* SearchViewController.swift in Sources */,
+				44413792234C9FC400FA3390 /* AboutUsViewController.swift in Sources */,
 				446459C9232A3F980065DBF5 /* SignUpViewController.swift in Sources */,
 				44F9206723376AF400127C7D /* ChipsHandler.swift in Sources */,
 				4415B5F5233BD64600769ACB /* CoreDataManager.swift in Sources */,

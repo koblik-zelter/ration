@@ -22,7 +22,7 @@ class SavedRecipesViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.setupViews()
         self.fetchRecipes()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(named: "BackgroundColor")
         // Do any additional setup after loading the view.
     }
     
@@ -33,7 +33,7 @@ class SavedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     private func setupViews() {
-        self.navigationController?.navigationBar.barTintColor = .rgbColor(red: 106, green: 191, blue: 123)
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "NavBarColor")
         let label = UILabel()
         label.textColor = UIColor.white
         label.text = "Рецепты на вашем устройстве!"

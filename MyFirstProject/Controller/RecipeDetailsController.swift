@@ -75,7 +75,7 @@ class RecipeDetailsViewController: UIViewController, UIScrollViewDelegate, UITab
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        self.navigationController?.navigationBar.barTintColor = .rgbColor(red: 106, green: 191, blue: 123)
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "NavBarColor")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -163,7 +163,6 @@ class RecipeDetailsViewController: UIViewController, UIScrollViewDelegate, UITab
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
 //            view.post = self.post
         let titleLabel = UILabel()
@@ -191,13 +190,14 @@ class RecipeDetailsViewController: UIViewController, UIScrollViewDelegate, UITab
         view.addSubview(timeLabel)
         view.addSubview(titleLabel)
         view.addSubview(caloriesLabel)
+        
         timeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 16).isActive = true
         timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
 
-        let constant = self.view.frame.width - 126
+        // let constant = self.view.frame.width - 126
         caloriesLabel.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor).isActive = true
-        caloriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: constant).isActive = true
-
+//        caloriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: constant).isActive = true
+        caloriesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         caloriesLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         caloriesLabel.widthAnchor.constraint(equalToConstant: 110).isActive = true
 
@@ -205,6 +205,7 @@ class RecipeDetailsViewController: UIViewController, UIScrollViewDelegate, UITab
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
 
+        view.sizeToFit()
         return view
     }
     

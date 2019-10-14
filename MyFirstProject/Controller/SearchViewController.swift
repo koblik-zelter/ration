@@ -59,7 +59,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     private func setupViews() {
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: pinterestLayout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.bounces = true
         collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: cellID)
@@ -85,7 +85,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     private func setupSearchBar() {
         //Search at the top
-        self.navigationController?.navigationBar.barTintColor = .rgbColor(red: 106, green: 191, blue: 123)
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "NavBarColor")
         self.searchController = UISearchController(searchResultsController:  nil)
         
         self.searchController.delegate = self
@@ -95,13 +95,13 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.searchController.obscuresBackgroundDuringPresentation = true
         self.searchController.searchBar.clipsToBounds = true
         searchController.searchBar.sizeToFit()
-        let attributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
+        let attributes = [NSAttributedString.Key.foregroundColor : UIColor(named: "SearchColor")]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor(named: "SearchColor")
        
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).clipsToBounds = true
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).layer.cornerRadius = 22
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(attributes, for: .normal)       
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .gray
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor(named: "TextSearchColor")
         
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.becomeFirstResponder()

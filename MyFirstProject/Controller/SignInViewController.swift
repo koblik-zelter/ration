@@ -108,7 +108,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "BackgroundColor")
         //self.navigationController?.isNavigationBarHidden = true
         setupView()
         dismissKey()

@@ -26,10 +26,11 @@ class ChipsHandler: NSObject, UICollectionViewDelegate, UICollectionViewDataSour
             cell.isSelected = true
         }
         cell.chipView.titleLabel.text = categories[indexPath.item].title
-        cell.chipView.setBackgroundColor(.white, for: .normal)
-        cell.chipView.setBorderColor(.rgbColor(red: 106, green: 191, blue: 123), for: .normal)
+        cell.chipView.setBackgroundColor(UIColor(named: "SearchColor"), for: .normal)
+        cell.chipView.setBorderColor(UIColor(named: "ChipsTextColor"), for: .normal)
+        cell.chipView.setBorderColor(.rgbColor(red: 106, green: 191, blue: 123), for: .selected)
         cell.chipView.setBorderWidth(1, for: .normal)
-        cell.chipView.setTitleColor(.rgbColor(red: 106, green: 191, blue: 123), for: .normal)
+        cell.chipView.setTitleColor(UIColor(named: "ChipsTextColor"), for: .normal)
         cell.chipView.setBackgroundColor(.rgbColor(red: 106, green: 191, blue: 123), for: .selected)
         cell.chipView.setTitleColor(.white, for: .selected)
         return cell

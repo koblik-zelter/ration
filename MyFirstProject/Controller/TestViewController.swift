@@ -72,7 +72,7 @@ class TestViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        self.navigationController?.navigationBar.barTintColor = .rgbColor(red: 106, green: 191, blue: 123)
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "NavBarColor")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -81,7 +81,7 @@ class TestViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private func setupView() {
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = true
@@ -152,7 +152,7 @@ class TestViewController: UIViewController, UICollectionViewDelegate, UICollecti
           
       func scrollViewDidScroll(_ scrollView: UIScrollView) {
           print(scrollView.contentOffset.y)
-          if scrollView.contentOffset.y > -100 {
+          if scrollView.contentOffset.y > -60 {
               self.backButton.isHidden = true
               self.likeButton.isHidden = true
               self.navigationController?.setNavigationBarHidden(false, animated: true)

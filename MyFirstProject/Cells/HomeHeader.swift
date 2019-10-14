@@ -15,7 +15,7 @@ class HomeHeader: UICollectionReusableView {
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
         layout.scrollDirection = .horizontal
         collection.showsHorizontalScrollIndicator = false
-        collection.backgroundColor = .clear
+        collection.backgroundColor = UIColor(named: "BackgroundColor")
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.isScrollEnabled = true
         collection.allowsMultipleSelection = false
@@ -43,7 +43,7 @@ class HomeHeader: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(named: "BackgroundColor")
         self.setupView()
     }
     

@@ -28,7 +28,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(named: "BackgroundColor")
         downloadCategories()
         setupView()
         setupNavigationBar()
@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private func setupView() {
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: pinterestLayout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = true
@@ -62,7 +62,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     private func setupNavigationBar() {
-        self.navigationController?.navigationBar.barTintColor = .rgbColor(red: 106, green: 191, blue: 123)
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "NavBarColor")
         let label = UILabel()
         label.textColor = UIColor.white
         label.text = "Koblzelv - твой выбор!"
