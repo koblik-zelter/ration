@@ -28,7 +28,7 @@ class SignInViewController: UIViewController {
     let backgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .rgbColor(red: 110, green: 198, blue: 128)
+        view.backgroundColor = UIColor(named: "NavBarColor")
         return view
     }()
     
