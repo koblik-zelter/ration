@@ -26,7 +26,7 @@ class HomeHeader: UICollectionReusableView {
     let separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(named: "MenuColor")
         return view
     }()
     
@@ -34,8 +34,8 @@ class HomeHeader: UICollectionReusableView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.robotoCondensed(size: 16)
-        label.textColor = .lightGray
-        label.backgroundColor = .white
+        label.textColor = UIColor(named: "MenuColor")
+        label.backgroundColor = UIColor(named: "BackgroundColor")
         label.text = "Наше меню"
         label.textAlignment = .center
         return label
