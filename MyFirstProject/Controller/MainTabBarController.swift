@@ -45,13 +45,13 @@ class MainTabBarController: UITabBarController {
         let savedNavController = UINavigationController(rootViewController: savedController)
         savedNavController.tabBarItem.image = UIImage(named: "pin")
         
-        let aboutUsController = AboutUsViewController()
-        let aboutUsNavController = UINavigationController(rootViewController: aboutUsController)
-        aboutUsNavController.tabBarItem.image = UIImage(named: "profile-0")
+//        let aboutUsController = AboutUsViewController()
+//        let aboutUsNavController = UINavigationController(rootViewController: aboutUsController)
+//        aboutUsNavController.tabBarItem.image = UIImage(named: "profile-0")
 
         tabBar.tintColor = UIColor(named: "TabColor")
         tabBar.isTranslucent = false
-        viewControllers = [homeNavController, searchNavController, savedNavController, aboutUsNavController]
+        viewControllers = [homeNavController, searchNavController, savedNavController]
         
         
     }
