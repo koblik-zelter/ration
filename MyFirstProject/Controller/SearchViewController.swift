@@ -165,7 +165,8 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     private func fetchSavedRecipes() {
         self.savedRecipes = CoreDataManager.shared.fetchRecipes()
     }
-
+    
+    
     private func downloadCategories() {
         APIManager.shared.downloadCategories(childKey: "RecipesCategories") { (categories) in
             self.categories.append(contentsOf: categories)
@@ -226,6 +227,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
             // TODO SAVING PHOTO
             self.selectedRecipes.forEach { (post) in
                 self.saveRecipe(post: post)
+                self.postBadge()
             }
             NotificationCenter.default.post(name: SearchViewController.name, object: nil)
             self.selectedRecipes.removeAll()
@@ -262,6 +264,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         catch let saveErr {
             print("Fail to save", saveErr)
+        }
+    }
+    
+    private func postBadge() {
+        if let tabItems = tabBarController?.tabBar.items {
+            // In this case we want to modify the badge number of the third tab:
+            let tabItem = tabItems[2]
+            tabItem.isEnabled = true
+            tabItem.badgeValue = "\(selectedRecipes.count)"
         }
     }
     private func getCollectionHeader() -> ChipsHeader? {

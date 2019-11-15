@@ -18,6 +18,14 @@ class SavedRecipesViewController: UIViewController, UITableViewDelegate, UITable
         return table
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let tabItems = tabBarController?.tabBar.items {
+        // In this case we want to modify the badge number of the third tab:
+            let tabItem = tabItems[2]
+            tabItem.badgeValue = nil
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViews()
